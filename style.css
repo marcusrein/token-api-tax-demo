@@ -1,0 +1,137 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+    min-width: 300px; /* Make input wider */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px 15px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 80%;
+    max-width: 500px; /* Adjusted max-width */
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; Removed for left alignment */
+    justify-content: flex-start; /* Align items to the start */
+}
+
+.form-group label {
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevent label from shrinking */
+    width: 130px; /* Give labels a fixed width */
+    text-align: right; /* Align text to the right */
+}
+
+.form-group input[type="text"],
+.form-group select {
+    flex-grow: 1; /* Allow input/select to take remaining space */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding/border in width */
+}
+
+.form-group input[type="text"] {
+     /* min-width: 250px; Removed min-width */
+}
+
+/* Class to hide elements */
+.hidden {
+    display: none;
+}
+
+/* Center the button in its own group */
+#fetchButton {
+   /* margin-left: auto; Removed */
+   /* The button is now in a div with class form-group, centering depends on parent */
+}
+
+#buttonGroup { /* Assuming you wrap the button in a div with this ID if needed */
+    justify-content: center;
+}
+
+pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 10px;
+    white-space: pre-wrap; /* Allow wrapping */
+    word-wrap: break-word; /* Break long words */
+    width: 90%; /* Maybe make it wider */
+    max-width: 900px; /* Maybe make it wider */
+    min-height: 100px;
+    max-height: 400px; /* Add scroll for very long responses */
+    overflow-y: auto;
+}
+
+.helper-text {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: -10px; /* Pull it closer to the inputs */
+    margin-bottom: 15px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+}
+
+/* Styles for the description text BELOW inputs */
+.description-text {
+    display: block; /* Make it a block element */
+    font-size: 0.85em;
+    color: #666;
+    margin-left: 140px; /* Indent to align roughly with input start (label width + margin) */
+    margin-top: -10px; /* Pull it up slightly */
+    margin-bottom: 15px; /* Space before next element */
+    /* white-space: nowrap; Remove - allow wrapping */
+    /* overflow: hidden; Remove */
+    /* text-overflow: ellipsis; Remove */
+    /* flex-shrink: 1; Remove - not needed in block layout */
+    text-align: left; /* Align text normally */
+    width: calc(80% - 140px); /* Adjust width considering indentation */
+    max-width: calc(500px - 140px); /* Adjust max-width considering indentation */
+}
+
+/* Ensure input doesn't take ALL space, leave room for description */
+/* Adjust flex-grow if needed, or set a max-width */
+.form-group input[type="text"] {
+    flex-grow: 1;
+} 
