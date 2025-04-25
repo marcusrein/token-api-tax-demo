@@ -16,8 +16,24 @@ const addressDescription = document.getElementById('addressDescription');
 const poolDescription = document.getElementById('poolDescription');
 const contractDescription = document.getElementById('contractDescription');
 
+// Get endpoint description element
+const endpointDescription = document.getElementById('endpointDescription');
+
 // Get network select element
 const networkSelect = document.getElementById('networkSelect');
+
+// --- Endpoint Descriptions Mapping ---
+const ENDPOINT_DESCRIPTIONS = {
+    balances: "Provides the latest token balances for a given wallet address.",
+    historical_balances: "Provides daily historical token balances for a given wallet address.",
+    transfers: "Provides recent token transfer events involving a given wallet address.",
+    tokens: "Provides metadata (name, symbol, decimals, etc.) for a specific token contract.",
+    holders: "Provides a list of addresses holding a specific token contract and their balances.",
+    swaps: "Provides recent swap events across DEX pools (e.g., Uniswap V2/V3) on the selected network.",
+    pools: "Provides metadata about DEX liquidity pools (e.g., Uniswap V2/V3) on the selected network.",
+    ohlc_pool: "Provides price history (Open, High, Low, Close, Volume) for a specific DEX liquidity pool.",
+    ohlc_contract: "Provides aggregate price history (Open, High, Low, Close, Volume) for a specific token contract."
+};
 
 // --- Define Network-Specific Example Addresses ---
 const EXAMPLE_ADDRESSES = {
@@ -69,14 +85,17 @@ const API_BASE_URL = "https://token-api.service.stage.pinax.network";
 // const PROXY_URL = "https://proxy.cors.sh/"; // Old proxy
 const PROXY_URL_PREFIX = "https://api.allorigins.win/raw?url="; // New proxy
 
-// --- Function to Update Inputs (Combined Logic) ---
+// --- Function to Update Inputs and Description ---
 function updateInputs() {
     const selectedEndpoint = endpointSelect.value;
-    let selectedNetwork = networkSelect.value; // Get selected network
-    // Correct network key for arbitrum-one
-    if (selectedNetwork === 'arbitrum-one') selectedNetwork = 'arbitrum'; 
+    let selectedNetwork = networkSelect.value;
+    if (selectedNetwork === 'arbitrum-one') selectedNetwork = 'arbitrum';
 
-    // --- Clear all input values and descriptions first ---
+    // --- Update Endpoint Description Text ---
+    endpointDescription.textContent = ENDPOINT_DESCRIPTIONS[selectedEndpoint] || ''; // Set text from mapping
+    // --------------------------------------
+
+    // --- Clear inputs/descriptions ---
     addressInput.value = ''; addressDescription.textContent = '';
     poolInput.value = '';    poolDescription.textContent = '';
     contractInput.value = ''; contractDescription.textContent = '';
@@ -89,10 +108,9 @@ function updateInputs() {
     noInputHelper.classList.add('hidden');
 
     let example;
-    // Get examples for the selected network, fallback to mainnet if network not defined
     const networkExamples = EXAMPLE_ADDRESSES[selectedNetwork] || EXAMPLE_ADDRESSES.mainnet;
 
-    // Show relevant inputs / helper text & set default values/descriptions
+    // --- Set default values/descriptions based on endpoint ---
     switch (selectedEndpoint) {
         // Endpoints requiring Wallet Address
         case 'balances':
@@ -267,5 +285,5 @@ fetchButton.addEventListener('click', async () => {
 endpointSelect.addEventListener('change', updateInputs);
 networkSelect.addEventListener('change', updateInputs); // Add listener for network change
 
-// Trigger change handler once on load to set initial state
+// Trigger initial update
 updateInputs(); 

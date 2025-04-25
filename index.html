@@ -9,61 +9,70 @@
 <body>
     <h1>Token API Demo (HTML)</h1>
 
-    <!-- Endpoint Selection -->
-    <div class="form-group">
-        <label for="endpointSelect">Select Endpoint:</label>
-        <select id="endpointSelect">
-            <option value="balances">Latest Balances</option>
-            <option value="historical_balances" selected>Historical Balances</option>
-            <option value="transfers">Transfers by Wallet</option>
-            <option value="tokens">Token Metadata</option>
-            <option value="holders">Token Holders</option>
-            <option value="swaps">Swap Events</option>
-            <option value="pools">Liquidity Pools</option>
-            <option value="ohlc_pool">OHLCV by Pool</option>
-            <option value="ohlc_contract">OHLCV by Contract</option>
-        </select>
-    </div>
+    <div class="controls-container">
+        <!-- Left Column: Selectors -->
+        <div class="controls-column left-column">
+            <!-- Endpoint Selection -->
+            <div class="form-group">
+                <label for="endpointSelect">Select Endpoint:</label>
+                <select id="endpointSelect">
+                    <option value="balances">Latest Balances</option>
+                    <option value="historical_balances" selected>Historical Balances</option>
+                    <option value="transfers">Transfers by Wallet</option>
+                    <option value="tokens">Token Metadata</option>
+                    <option value="holders">Token Holders</option>
+                    <option value="swaps">Swap Events</option>
+                    <option value="pools">Liquidity Pools</option>
+                    <option value="ohlc_pool">OHLCV by Pool</option>
+                    <option value="ohlc_contract">OHLCV by Contract</option>
+                </select>
+            </div>
+            <!-- Network Selection -->
+            <div class="form-group">
+                <label for="networkSelect">Select Network:</label>
+                <select id="networkSelect">
+                    <option value="mainnet" selected>Ethereum Mainnet</option>
+                    <option value="base">Base</option>
+                    <option value="matic">Polygon (Matic)</option>
+                    <option value="arbitrum-one">Arbitrum One</option>
+                    <option value="optimism">Optimism</option>
+                    <option value="bsc">BNB Smart Chain (BSC)</option>
+                    <option value="unichain">Unichain</option> <!-- Assuming this is correct -->
+                    <!-- Add other supported networks as needed -->
+                </select>
+            </div>
+             <!-- Endpoint Description -->
+             <p class="endpoint-description" id="endpointDescription"></p>
+        </div>
 
-     <!-- Network Selection -->
-    <div class="form-group">
-        <label for="networkSelect">Select Network:</label>
-        <select id="networkSelect">
-            <option value="mainnet" selected>Ethereum Mainnet</option>
-            <option value="base">Base</option>
-            <option value="matic">Polygon (Matic)</option>
-            <option value="arbitrum-one">Arbitrum One</option>
-            <option value="optimism">Optimism</option>
-            <option value="bsc">BNB Smart Chain (BSC)</option>
-            <option value="unichain">Unichain</option> <!-- Assuming this is correct -->
-            <!-- Add other supported networks as needed -->
-        </select>
-    </div>
+        <!-- Right Column: Inputs -->
+        <div class="controls-column right-column">
+            <!-- Input Fields -->
+            <div class="form-group hidden" id="addressInputGroup">
+                <label for="addressInput">Wallet Address:</label>
+                <input type="text" id="addressInput" placeholder="0x...">
+            </div>
+            <span class="description-text hidden" id="addressDescription"></span>
 
-    <!-- Input Fields -->
-    <div class="form-group hidden" id="addressInputGroup">
-        <label for="addressInput">Wallet Address:</label>
-        <input type="text" id="addressInput" placeholder="0x...">
-    </div>
-    <span class="description-text hidden" id="addressDescription"></span>
+            <div class="form-group hidden" id="poolInputGroup">
+                <label for="poolInput">Pool Address:</label>
+                <input type="text" id="poolInput" placeholder="0x...">
+            </div>
+            <span class="description-text hidden" id="poolDescription"></span>
 
-    <div class="form-group hidden" id="poolInputGroup">
-        <label for="poolInput">Pool Address:</label>
-        <input type="text" id="poolInput" placeholder="0x...">
-    </div>
-    <span class="description-text hidden" id="poolDescription"></span>
+             <div class="form-group hidden" id="contractInputGroup">
+                <label for="contractInput">Contract Address:</label>
+                <input type="text" id="contractInput" placeholder="0x...">
+            </div>
+            <span class="description-text hidden" id="contractDescription"></span>
 
-     <div class="form-group hidden" id="contractInputGroup">
-        <label for="contractInput">Contract Address:</label>
-        <input type="text" id="contractInput" placeholder="0x...">
-    </div>
-    <span class="description-text hidden" id="contractDescription"></span>
+            <!-- Helper text for endpoints without required inputs -->
+            <p class="helper-text hidden" id="noInputHelper">This endpoint fetches general data. No specific address input required for this basic demo (uses selected network).</p>
+        </div>
+    </div> <!-- End controls-container -->
 
-    <!-- Helper text for endpoints without required inputs -->
-    <p class="helper-text hidden" id="noInputHelper">This endpoint fetches general data. No specific address input required for this basic demo (uses selected network).</p>
-
-    <!-- Fetch Button -->
-    <div class="form-group" id="buttonGroup">
+    <!-- Fetch Button (Moved Below Columns) -->
+    <div class="form-group button-container" id="buttonGroup">
          <button id="fetchButton">Fetch Data</button>
     </div>
 
