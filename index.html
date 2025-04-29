@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Token API Demo</title>
+    <title>Token API Taxes UseCase</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Lightweight-Charts for candlestick visualizations -->
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <!-- Load Chart.js and financial chart plugin for candlestick support -->
 </head>
 <body>
-    <h1>Token API Demo</h1>
+    <h1>Token API Taxes UseCase</h1>
 
     <div class="controls-container">
         <!-- Left Column: Selectors -->
@@ -75,6 +78,9 @@
     <div class="form-group button-container" id="buttonGroup">
          <button id="fetchButton">Fetch Data</button>
     </div>
+
+    <!-- Visual container for charts or tables -->
+    <div id="visualContainer"></div>
 
     <!-- Response Area -->
     <h2>API Response:</h2>

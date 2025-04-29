@@ -1,4 +1,4 @@
-# Token API Demo (HTML + Node.js Proxy)
+# Token API Taxes UseCase 
 
 This is a simple demonstration of fetching data from various endpoints of The Graph's Token API (Staging Environment).
 
