@@ -15,12 +15,13 @@ h1 {
 }
 
 /* Intro content width constraint */
-div[style="text-align: center;"] {
+.intro-section {
     max-width: 800px;
     margin: 0 auto 30px auto;
+    text-align: center;
 }
 
-div[style="text-align: center;"] p {
+.intro-section p {
     line-height: 1.5;
 }
 
@@ -281,7 +282,7 @@ button:disabled {
 }
 
 @media (max-width: 480px) {
-    div[style="text-align: center;"] {
+    .intro-section {
         width: 100%;
     }
     
