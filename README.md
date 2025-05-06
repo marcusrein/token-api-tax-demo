@@ -1,4 +1,4 @@
-# The Graph Token API — Taxes & Accounting Quick Demo
+# The Graph Token API — Taxes & Accounting Usecase
 
 Token API Docs: https://thegraph.com/docs/en/token-api/quick-start/
 
