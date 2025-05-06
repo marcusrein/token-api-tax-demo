@@ -4,6 +4,8 @@ body {
     display: flex;
     flex-direction: column;
     /* align-items: center; Maybe remove general center alignment */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h1 {
@@ -12,13 +14,23 @@ h1 {
     margin-bottom: 20px; /* Add space below heading */
 }
 
+/* Intro content width constraint */
+div[style="text-align: center;"] {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+div[style="text-align: center;"] p {
+    line-height: 1.5;
+}
+
 /* New container for controls */
 .controls-container {
     display: flex;
     justify-content: space-between; /* Space columns */
     gap: 30px; /* Space between columns */
     width: 90%;
-    max-width: 900px; /* Adjust overall max width if needed */
+    max-width: 800px; /* Reducing max width for better readability */
     margin: 0 auto 20px auto; /* Center container and add bottom margin */
 }
 
@@ -112,7 +124,7 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
     width: 90%; /* Maybe make it wider */
-    max-width: 900px; /* Maybe make it wider */
+    max-width: 800px; /* Reducing max width for better readability */
     min-height: 100px;
     max-height: 400px;
     overflow-y: auto;
@@ -144,7 +156,7 @@ button:disabled {
 
 #visualContainer {
     width: 90%;
-    max-width: 900px;
+    max-width: 800px; /* Reducing max width for better readability */
     margin: 20px auto;
 }
 
@@ -241,4 +253,43 @@ button:disabled {
     width: 100%;
     height: 400px;
     margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .controls-container {
+        flex-direction: column;
+        gap: 15px;
+        width: 95%;
+    }
+    
+    pre {
+        width: 95%;
+    }
+    
+    body {
+        padding: 10px;
+    }
+    
+    .data-table {
+        font-size: 0.8em;
+    }
+    
+    .data-table th, .data-table td {
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    div[style="text-align: center;"] {
+        width: 100%;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    body {
+        padding: 8px;
+    }
 } 
