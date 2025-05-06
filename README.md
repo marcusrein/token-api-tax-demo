@@ -1,5 +1,7 @@
 # The Graph Token API — Taxes & Accounting Quick Demo
 
+Token API Docs: https://thegraph.com/docs/en/token-api/quick-start/
+
 > **Audience:** Tax advisors, CPAs, accounting teams, and back-office engineers who need reliable on-chain token data for compliance, reporting, and audit purposes.
 
 This repo shows how to pull **wallet balances, historical inventory snapshots, transfers, holders lists, DEX swaps and price candles** from **The Graph Token API** with nothing more than a browser and a local Node process.
@@ -60,8 +62,6 @@ The demo is intentionally lightweight—just plain **HTML, CSS, JavaScript, and 
 | `/holders` | Airdrop or dividend snapshots | `/holders/evm/0xTOKEN?network_id=optimism` |
 | `/ohlc` | Fair-market valuation (FMV) | `/ohlc/prices/evm/0xTOKEN?interval=1d` |
 
-⚠️  The demo points at **`https://token-api.service.stage.pinax.network`**.  Swap in the production URL (or your own subgraph) when you go live.
-
 ---
 ## Coming soon 🚧
 
@@ -86,5 +86,3 @@ Follow the **Releases** tab or watch the repo to get notified when these land.
 
 ‣ **License**: MIT — use it in client engagements freely.
 
----
-> **The Graph × Pinax** — making on-chain data usable for real-world compliance. 
