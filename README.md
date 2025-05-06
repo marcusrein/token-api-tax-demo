@@ -34,13 +34,7 @@ The demo is intentionally lightweight—just plain **HTML, CSS, JavaScript, and 
 3. **Open the demo**
    Navigate to **http://localhost:3001** and click "Fetch Data".  You will see live JSON plus an auto-generated table or candlestick chart.
 
-<details>
-<summary>Screenshot</summary>
-
 ![screenshot of demo UI](docs/screenshot.png)
-
-</details>
-
 ---
 ## How the pieces fit together
 
